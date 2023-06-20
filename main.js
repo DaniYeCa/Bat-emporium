@@ -49,43 +49,43 @@ const products = [
   },
   {
     name: 'botas',
-    price: 15,
+    price: 255,
     seller: 'newrock',
     image: 'assets/wsto45.png'
   },
   {
     name: 'Botas',
-    price: 15,
+    price: 215,
     seller: 'Demonia',
     image: 'assets/boots-demonian.png'
   },
   {
     name: 'Camiseta',
-    price: 15,
+    price: 30,
     seller: 'newrock',
     image: './assets/camiseta-manga-larga.png',
   },
   {
     name: 'accesorios',
-    price: 15,
+    price: 20,
     seller: 'babythess',
     image: 'assets/guantes-lolita.png'
   },
   {
     name: 'accesorios',
-    price: 15,
+    price: 47,
     seller: 'babythess',
     image: 'assets/accesorio-1.png'
   },
   {
     name: 'Sudadera',
-    price: 15,
+    price: 35,
     seller: 'newrock',
     image: 'assets/sudadera-fantasma.png'
   },
   {
     name: 'Botas',
-    price: 15,
+    price: 324.99,
     seller: 'Demonia',
     image: 'assets/boots-demonia-2.png'
   },
