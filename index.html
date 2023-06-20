@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/icons8-rostro-murciélago-64.png" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+  <title>Bat Emporium</title>
+</head>
+
+<body>
+
+  <!-- header -->
+  <header class="header">
+    <div class="logo">
+      <img src="./assets/logo-definitivo.png" alt="logotipo">
+    </div>
+
+    <nav class="navbar">
+      <img class="menu-burguer" src="./assets/toxico (1).png" onclick="hideMenu()">
+      <a href="#about">Sobre Nosotros <span></span></a>
+      <a href="#products">productos <span></span></a>
+      <a href="#contact">Contacto <span></span></a>
+      <img class="menu-burguer" src="./assets/menu-burguer.png" onclick="showNavbar()">
+    </nav>
+
+
+  </header>
+
+
+
+  <!-- main -->
+  <main>
+    <!-- Seccion of scrolling -->
+    <section class="scrolling">
+      <h1 id="text">Bat <br><span> Emporium</span></h1>
+      <div class="plus">
+        <img src="./assets/tree-left.png" id="rama-izq">
+        <img src="./assets/tree-right.png" id="rama-der">
+        <img src="./assets/gate-left.png" id="valla-izq">
+        <img src="./assets/gate-right.png" id="valla-der">
+        <img src="./assets/grass.png" id="cesped">
+      </div>
+
+    </section>
+    <!-- seccion about -->
+    <section class="abaut" id="about">
+      <h2>Sobre Nosotros</h2>
+      <p>Si llevas tiempo pensando que no encuentras una tienda que entienda tus gustos has llegado al sitio
+        indicado, ¡Estas como en tu casa! una tienda diferente para gente distinta, es un espacio libre de prejuicios
+        para todo tipo de personas, Daniel yepes y Jose Miguel diaz te esperan entre las sombras ☠️<br></p>
+    </section>
+    <!-- seccion Products -->
+    <section class="products" id="products">
+      <h3>Nuestros <span>Productos</span></h3>
+
+      <div class="filter">
+        <input value="" class="filter-seller" type="text" id="search-seller" placeholder="Buscar por marca...">
+        <!-- <select name="" id="search-seller">
+          <option value="">Busca tu marca..</option>
+        </select> -->
+        <input value="" class="filter-price" type="number" id="searchInput" placeholder="Buscar por precio">
+      </div>
+      <div class="button-filter">
+        <button id="button-filter" class="button-85">Buscar..</button>
+      </div>
+      <div class="reset">
+        <button id="button-reset" class="button-85">Reiniciar</button>
+      </div>
+      <div class="box-container" id="shop-container">
+
+      </div>
+    </section>
+  </main>
+
+
+
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="rrss-container" id="contact">
+      <a href="#"><img src="./assets/icons8-facebook-50.png" alt="logo-facebook"></a>
+      <a href="#"><img src="./assets/icons8-github-50 (2).png" alt="logo-github"></a>
+      <a href="#"><img src="./assets/icons8-instagram-50.png" alt="logo-instagram"></a>
+      <a href="#"><img src="./assets/icons8-linkedin-50.png" alt="logo-linkedin"></a>
+    </div>
+    <div class="credit">
+      created by Daniel<span> mr. web designer</span> | ©️ all rights reserved
+    </div>
+  </footer>
+
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
