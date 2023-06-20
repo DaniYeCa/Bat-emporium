@@ -94,7 +94,6 @@ const products = [
 const copyOfProducts = products.slice().sort((productA, productB) => productB.price < productA.price ? 1 : -1);
 
 
-const boxContainer = document.querySelector('#shop-container');
 const resetProducts = document.querySelector('#button-reset');
 const searchForSeller = document.querySelector('#search-seller');
 const searchButton = document.querySelector('#button-filter');
@@ -118,14 +117,14 @@ const getProducts = (product) => {
   `;
 
 };
-const productsList = document.querySelector('#shop-container');
+const boxContainer = document.querySelector('#shop-container');
 
 
 const setupProductsList = () => {
-  const productsList = document.querySelector('#shop-container');
+  const boxContainer = document.querySelector('#shop-container');
 
   for (const product of products) {
-    productsList.innerHTML += getProducts(product)
+    boxContainer.innerHTML += getProducts(product)
   }
 
 };
@@ -133,126 +132,54 @@ const setupProductsList = () => {
 
 const newArray = (newArrayCreated) => {
   newArrayCreated.forEach(pr => {
-    productsList.innerHTML += getProducts(pr)
+    boxContainer.innerHTML += getProducts(pr)
   })
 }
 
 
-const searchProduct = (event) => {
-  console.log(event.target.value)
-  const prueba = event.target.value;
+const searchProduct = () => {
   const productsFilter = products.filter((producto) =>
-    producto.seller.toLowerCase().includes(event.target.value.toLowerCase())
+    producto.seller.toLowerCase().includes(searchForSeller.value.toLowerCase()) || producto.name.toLowerCase().includes(searchForSeller.value.toLowerCase())
   );
 
-  console.log(productsFilter);
-  console.log(prueba)
-  productsList.innerHTML = "";
+
+  boxContainer.innerHTML = "";
   newArray(productsFilter);
+};
+
+const searchPrice = () => {
+  const productsPrice = products.filter((producto) =>
+    producto.price >= searchForPrice.value && producto.price <= searchForPrice.value
+  );
+  console.log(productsPrice)
 };
 
 
 
 
-// window.addEventListener("load", printProducts);
+
+
+
+
+
+
+const resetObjets = () => {
+  boxContainer.innerHTML = '';
+  setupProductsList();
+  searchForPrice.value = '';
+  searchForSeller.value = '';
+}
+
+
+
+
+
+
+
 
 const searchIn = document.querySelector("#search-seller");
-// searchIn.addEventListener("input", searchProduct);
+
 searchButton.addEventListener('click', searchProduct);
-
-
-
-// const addoptionsToTypeOfPick = () => {
-//   const sellerPickerSelct = document.querySelector('#search-seller');
-
-//   const typeOfSeller = () => {
-//     const optionTypeOfSeller = [];
-
-
-//     for (let i = 0; i < products.length; i++) {
-//       const typeSeller = products[i].seller;
-
-//       if (!optionTypeOfSeller.includes(typeSeller)) {
-//         optionTypeOfSeller.push(typeSeller);
-//       }
-//     };
-
-//     console.log(optionTypeOfSeller)
-
-//     optionTypeOfSeller.forEach(element => {
-//       const optionSeller = document.createElement('option');
-//       optionSeller.innerText = element;
-//       sellerPickerSelct.append(optionSeller);
-//     });
-
-
-//   };
-//   typeOfSeller();
-// };
-
-
-
-
-
-// const filterTheSeller = (typeOfSeller) => {
-
-//   const newArraySeller = [];
-//   copyOfProducts.forEach(products => {
-//     if (products.seller === typeOfSeller) {
-//       newArraySeller.push(products)
-//     };
-//   })
-//   console.log(newArraySeller)
-
-// };
-
-
-// const selectionOption = () => {
-//   const options = document.querySelectorAll("#search-seller").value;
-//   console.log(options);
-// };
-
-// selectionOption()
-
-// const filterByPrice = (findPrice, newArryPrice) => {
-//   copyOfProducts.forEach(products => {
-//     if (products.price <= findPrice) {
-//       newArryPrice.push(products)
-//     };
-//   })
-// }
-
-// const productsInBoxContainer = (newArrayCreated) => {
-//   newArrayCreated.forEach(products => {
-//     boxContainer.innerHTML += getProducts(products)
-//   })
-// }
-
-
-
-
-// resetProducts.addEventListener('click', (ev) => {
-//   const resetObjets = () => {
-//     boxContainer.innerHTML = '';
-//     setupProductsList();
-//     sellerPickerSelct.value = '';
-//     searchForSeller.value = `inserta el precio`;
-//   }
-
-//   setTimeout(() => resetObjets(), 1000)
-
-// })
-
-
-
-
-
-
-
-
-
-// addoptionsToTypeOfPick();
+resetProducts.addEventListener('click', resetObjets);
 window.addEventListener('load', setupProductsList());
 
-// searchButton.addEventListener('click', timeoutClick);
-// searchForPrice.addEventListener('change', timeoutChange);

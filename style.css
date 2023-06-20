@@ -155,7 +155,7 @@ header {
 
 }
 
-input, #search-seller {
+input {
   padding: 4px;
   font-size: 17px;
   border-width: 1px;
