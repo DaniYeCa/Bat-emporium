@@ -1,3 +1,5 @@
+// scrolling
+
 let text = document.getElementById('text');
 let ramaIzq = document.getElementById('rama-izq');
 let ramaDer = document.getElementById('rama-der');
@@ -16,17 +18,18 @@ window.addEventListener('scroll', () => {
 
 
 
+
 const products = [
   {
     name: 'corset',
     price: 39.00,
-    seller: 'NewsKill',
+    seller: 'Newkill',
     image: 'assets/corset-mujer-1.png'
   },
   {
     name: 'corset',
     price: 69.99,
-    seller: 'NewKill',
+    seller: 'Newkill',
     image: 'assets/corset-2.png'
   },
   {
@@ -38,19 +41,19 @@ const products = [
   {
     name: 'Zapatos',
     price: 119.99,
-    seller: 'buffalo',
+    seller: 'Buffalo',
     image: './assets/buffalo1.png'
   },
   {
     name: 'Zapatos',
     price: 315.00,
-    seller: 'buffalo',
+    seller: 'Buffalo',
     image: './assets/buffalo2.png'
   },
   {
     name: 'botas',
     price: 255,
-    seller: 'newrock',
+    seller: 'NewRock',
     image: 'assets/wsto45.png'
   },
   {
@@ -62,25 +65,25 @@ const products = [
   {
     name: 'Camiseta',
     price: 30,
-    seller: 'newrock',
+    seller: 'NewRock',
     image: './assets/camiseta-manga-larga.png',
   },
   {
     name: 'accesorios',
     price: 20,
-    seller: 'babythess',
+    seller: 'BabyThess',
     image: 'assets/guantes-lolita.png'
   },
   {
     name: 'accesorios',
     price: 47,
-    seller: 'babythess',
+    seller: 'BabyThess',
     image: 'assets/accesorio-1.png'
   },
   {
     name: 'Sudadera',
     price: 35,
-    seller: 'newrock',
+    seller: 'NewRock',
     image: 'assets/sudadera-fantasma.png'
   },
   {
@@ -91,15 +94,11 @@ const products = [
   },
 ];
 
-const copyOfProducts = products.slice().sort((productA, productB) => productB.price < productA.price ? 1 : -1);
-
+const copyOfProducts = products.sort((productA, productB) => productB.price < productA.price ? 1 : -1);
 
 const resetProducts = document.querySelector('#button-reset');
-const searchForSeller = document.querySelector('#search-seller');
 const searchButton = document.querySelector('#button-filter');
-const searchForPrice = document.querySelector('.filter-price');
-
-
+const boxContainer = document.getElementById("shop-container");
 
 
 const getProducts = (product) => {
@@ -117,69 +116,44 @@ const getProducts = (product) => {
   `;
 
 };
-const boxContainer = document.querySelector('#shop-container');
 
-
-const setupProductsList = () => {
+const setupProductsList = (productToPrint) => {
   const boxContainer = document.querySelector('#shop-container');
 
-  for (const product of products) {
-    boxContainer.innerHTML += getProducts(product)
-  }
-
-};
-
-
-const newArray = (newArrayCreated) => {
-  newArrayCreated.forEach(pr => {
-    boxContainer.innerHTML += getProducts(pr)
-  })
-}
-
-
-const searchProduct = () => {
-  const productsFilter = products.filter((producto) =>
-    producto.seller.toLowerCase().includes(searchForSeller.value.toLowerCase()) || producto.name.toLowerCase().includes(searchForSeller.value.toLowerCase())
-  );
-
-
-  boxContainer.innerHTML = "";
-  newArray(productsFilter);
-};
-
-const searchPrice = () => {
-  const productsPrice = products.filter((producto) =>
-    producto.price >= searchForPrice.value && producto.price <= searchForPrice.value
-  );
-  console.log(productsPrice)
-};
-
-
-
-
-
-
-
-
-
-
-const resetObjets = () => {
   boxContainer.innerHTML = '';
-  setupProductsList();
+
+  for (const product of productToPrint) {
+    boxContainer.innerHTML += getProducts(product);
+  }
+};
+
+const filtrarProductos = () => {
+  const searchForSeller = document.getElementById("search-seller").value;
+  const searchForPrice = document.getElementById("search-price").value;
+
+  const productFiltered = products.filter((product) => {
+    if (product.price <= searchForPrice || product.seller === searchForSeller) {
+      return product;
+    }
+  });
+
+  setupProductsList(productFiltered);
+};
+
+const resetObjects = () => {
+  const boxContainer = document.querySelector('#shop-container');
+  const searchForPrice = document.querySelector('input[type="number"]');
+  const searchForSeller = document.getElementById("search-seller");
+
+  boxContainer.innerHTML = '';
+  setupProductsList(products);
   searchForPrice.value = '';
   searchForSeller.value = '';
-}
+};
 
+const searchForPrice = document.querySelector('input[type="number"]');
+const searchForSeller = document.getElementById("search-seller");
 
-
-
-
-
-
-
-const searchIn = document.querySelector("#search-seller");
-
-searchButton.addEventListener('click', searchProduct);
-resetProducts.addEventListener('click', resetObjets);
-window.addEventListener('load', setupProductsList());
-
+searchButton.addEventListener('click', filtrarProductos);
+resetProducts.addEventListener('click', resetObjects);
+window.addEventListener('load', () => setupProductsList(products));

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Merienda:wght@300;400&family=Roboto&display=swap');
 
-
 :root{
   --primary-color: black;
   --secundary-color: rgb(98, 94, 94); 
@@ -73,12 +72,6 @@ header {
   opacity: 1;
 }
 
-.navbar .menu-burguer{
-  display: none;
-}
-
-
-
 
 
 .scrolling{
@@ -92,7 +85,6 @@ header {
   background-position: center;
   background-attachment: fixed;
 }
-
 
 #text{
   position: absolute;
@@ -155,7 +147,7 @@ header {
 
 }
 
-input {
+input, select{
   padding: 4px;
   font-size: 17px;
   border-width: 1px;
@@ -179,7 +171,6 @@ input:focus {
   margin-top: 30px;
   gap: 8px;
 }
-
 
 .button-85 {
   padding: 0.6em 2em;
@@ -249,7 +240,6 @@ input:focus {
 }
 
 
-
 .products{
   position: relative;
   background: #020912;
@@ -272,7 +262,6 @@ input:focus {
   font-size: 1.5em;
   text-align: center;
 }
-
 
 .products .box-container{
   position: relative;
@@ -314,13 +303,11 @@ input:focus {
   font-size: 2rem;
 }
 
-
 .contact{
   position: relative;
   background: #020912;
   padding: 30px 100px;
 }
-
 
 footer{
   position: relative;
@@ -371,38 +358,24 @@ padding: 1rem 0;
  }
 }
 
-
 @media screen and (max-width:430px){
 
   body{
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-  
   }
+
   .scrolling .plus{
     display: none;
   }
 
-
-
-
-
-  header .navbar{
-    position: absolute;
-    display: inline-block;
-    top: 0; right: 0;
-    background: var(--secundary-color);
-    width: 10rem;
-    height: calc(100vh - 9.5rem);
+  header{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--border);
-    padding: 1rem;
-    border-top-left-radius:.5rem;
+    gap: 2px;
   }
 
   header .navbar a{
@@ -410,23 +383,13 @@ padding: 1rem 0;
     font-weight: bold;
     cursor: pointer;
     font-size: 1.2rem;
-    padding:.5rem;
+    padding: .5rem;
     display: block;
     transition: all.5s ease;
-
-  }
+    }
 
   header .navbar a:hover{
     cursor: pointer;
-    color: var(--terciary-color);
-  }
-
-  header .navbar .menu-burguer{
-    display: inline-block;
-    position: absolute;
-    top: 0; right: 0;
-    height: 100%;
-    width: 10rem;
 
   }
 
@@ -462,9 +425,9 @@ padding: 1rem 0;
   justify-content: center;
  }
 
-
   
 }
+
 
 
 

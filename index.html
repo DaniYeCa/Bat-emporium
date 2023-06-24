@@ -18,16 +18,13 @@
     </div>
 
     <nav class="navbar">
-      <!-- <img class="menu-burguer" src="./assets/toxico (1).png" onclick="hideMenu()"> -->
       <a href="#about">Sobre Nosotros <span></span></a>
       <a href="#products">productos <span></span></a>
       <a href="#contact">Contacto <span></span></a>
-      <!-- <img class="menu-burguer" src="./assets/menu-burguer.png" onclick="showNavbar()"> -->
+
     </nav>
 
-
   </header>
-
 
 
   <!-- main -->
@@ -56,11 +53,19 @@
       <h3>Nuestros <span>Productos</span></h3>
 
       <div class="filter">
-        <input value="" class="filter-seller" type="text" id="search-seller" placeholder="Buscar por marca...">
-        <input value="" class="filter-price" type="number" id="search-price" placeholder="Buscar por precio">
+        <select name="" id="search-seller">
+          <option value="">Selecciona tu marca</option>
+          <option value="NewRock">NewRock</option>
+          <option value="Demonia">Demonia</option>
+          <option value="Newkill">Newkill</option>
+          <option value="Buffalo">Buffalo</option>
+          <option value="BabyThess">BabyThess</option>
+        </select>
+        <!-- <input value="" class="filter-seller" type="text" id="search-seller" placeholder="Buscar por marca..."> -->
+        <input value="" class="filter-price" type="number" id="search-price" placeholder="Precio máximo🦇">
       </div>
       <div class="button-filter">
-        <button id="button-filter" class="button-85">Buscar..</button>
+        <button id="button-filter" class="button-85">Buscar</button>
       </div>
       <div class="reset">
         <button id="button-reset" class="button-85">Reiniciar</button>
@@ -70,7 +75,6 @@
       </div>
     </section>
   </main>
-
 
 
 
@@ -86,7 +90,6 @@
       created by Daniel<span> mr. web designer</span> | ©️ all rights reserved
     </div>
   </footer>
-
 
   <script src="./main.js"></script>
 </body>
