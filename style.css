@@ -16,6 +16,7 @@
   text-decoration: none;
   list-style: none;
   font-family: 'Merienda', cursive;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -356,6 +357,17 @@ padding: 1rem 0;
  .scrolling .plus{
   display: none;
  }
+}
+
+@media screen and (max-width: 780px){
+  .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  
 }
 
 @media screen and (max-width:430px){
