@@ -121,18 +121,44 @@ const setupProductsList = (productToPrint) => {
   const boxContainer = document.querySelector('#shop-container');
 
   boxContainer.innerHTML = '';
-
-  for (const product of productToPrint) {
-    boxContainer.innerHTML += getProducts(product);
+  if (productToPrint.length > 0) {
+    for (const product of productToPrint) {
+      boxContainer.innerHTML += getProducts(product);
+    }
+  } else {
+    boxContainer.innerHTML += `<h2>No se han encontrado productos...</h2>`
   }
+
+
+
 };
 
-const filtrarProductos = () => {
+const filterForProducts = () => {
+
   const searchForSeller = document.getElementById("search-seller").value;
   const searchForPrice = document.getElementById("search-price").value;
 
+  let isPrice = searchForPrice ? true : false;
+  let isSeller = searchForSeller != '' ? true : false;
+
   const productFiltered = products.filter((product) => {
-    if (product.price <= searchForPrice || product.seller === searchForSeller) {
+
+    if (isPrice && isSeller) {
+      if (product.price <= searchForPrice && product.seller === searchForSeller) {
+        return product;
+      }
+    }
+    if (isPrice && !isSeller) {
+      if (product.price <= searchForPrice) {
+        return product;
+      }
+    }
+    if (!isPrice && isSeller) {
+      if (product.seller === searchForSeller) {
+        return product;
+      }
+    }
+    if (!isPrice && !isSeller) {
       return product;
     }
   });
@@ -154,6 +180,6 @@ const resetObjects = () => {
 const searchForPrice = document.querySelector('input[type="number"]');
 const searchForSeller = document.getElementById("search-seller");
 
-searchButton.addEventListener('click', filtrarProductos);
+searchButton.addEventListener('click', filterForProducts);
 resetProducts.addEventListener('click', resetObjects);
 window.addEventListener('load', () => setupProductsList(products));

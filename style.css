@@ -264,6 +264,14 @@ input:focus {
   text-align: center;
 }
 
+h2{
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
 .products .box-container{
   position: relative;
   display: grid;
@@ -367,6 +375,12 @@ padding: 1rem 0;
     flex-direction: column;
     
   }
+  footer .credit{
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: lighter;
+    padding: 1.5rem;
+  }
   
 }
 
@@ -435,7 +449,7 @@ padding: 1rem 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
- }
+  }
 
   
 }
